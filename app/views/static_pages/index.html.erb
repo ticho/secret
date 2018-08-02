@@ -1,0 +1,19 @@
+<div class="container">
+<h1>Welcome to my website</h1>
+<br>
+<ul class="list-group">
+  <li class="list-group-item">
+    <% if logged_in? %>
+      <%= link_to 'Show Profile', user_path(session[:user_id]) %>
+    <% else %>
+      <%= link_to 'Create new user', new_user_path %>
+    <% end %>
+  </li>
+  <li class="list-group-item">
+    <%= link_to 'Show all user', users_path %>
+  </li>
+  <li class="list-group-item">
+    <%= link_to 'Secret page', secret_path %>
+  </li>
+</ul>
+</div>

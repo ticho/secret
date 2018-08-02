@@ -1,0 +1,12 @@
+<div class="container">
+<% user = current_user %> 
+Your email is <%= user.email %>
+<ul class="list-group">
+  <li class="list-group-item">
+    <%= link_to 'Update user', edit_user_path %>
+  </li>
+  <li class="list-group-item">
+    <%= link_to 'Delete user', user_path, method: :delete %>
+  </li>
+</ul>
+</div>
