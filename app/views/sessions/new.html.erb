@@ -13,8 +13,9 @@
 </div>
 
 <%= submit_tag("Login", {class: 'btn btn-primary btn-lg btn-submit'}) %>
+
+<%= check_box_tag(:remember_me, "Remember me", true) %>
+<%= label_tag('remember_me', content = "Remember me") %>
 <% end %>
-<br>
-<%= link_to("Back to home", content=root_path, options = {class: 'btn btn-sm btn-primary'}) %>
 
 </div>

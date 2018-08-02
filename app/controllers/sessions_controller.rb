@@ -9,6 +9,10 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       # login
       log_in(user)
+      remember user if params[:remember_me]
+      if params[:remember_me]
+        puts "REMEMBER"
+      end
       flash[:success] = "Login successful"
       redirect_to root_path
     else
