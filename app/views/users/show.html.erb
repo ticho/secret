@@ -1,6 +1,8 @@
 <div class="container">
 <% user = current_user %> 
-Your email is <%= user.email %>
+<h1>
+  Your email is <%= user.email %>
+</h1>
 <ul class="list-group">
   <li class="list-group-item">
     <%= link_to 'Update user', edit_user_path %>

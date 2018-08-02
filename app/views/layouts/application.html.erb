@@ -12,9 +12,28 @@
   </head>
 
   <body>
+  <%#Renders the _header file %>
     <%= render 'layouts/header'  %>
+
+    <%#Displays the errors, and also the error messages for the user creation%>
     <% flash.each do |message_type, message| %>
      <div class="alert alert-<%= message_type %>"><%= message %></div>
+     <% if @errors %>
+     <div class="alert alert-danger">
+      <ul>
+        <% @errors.each do |error| %>
+          <li>
+            <%= error[0] %>
+            <ul>
+              <% error[1].each do |msg| %>
+              <li><%= msg %></li>
+              <% end%>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+     </div>
+    <% end %>
     <% end %>
     <%= yield %>
   </body>

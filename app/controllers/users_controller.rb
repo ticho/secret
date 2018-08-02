@@ -12,6 +12,7 @@ class UsersController < ApplicationController
       password_confirmation: params[:password_confirmation]
     )
     if user.errors.any?
+      @errors = user.errors.messages
       flash[:danger] = "User wasn't created"
       render :new
     else
@@ -22,23 +23,23 @@ class UsersController < ApplicationController
 
   # making it possible to type in a username in the URL, only for the connected user
   def show
-    if (!logged_in? || current_user.id.to_i != params[:id].to_i)
-      flash[:danger] = "You don't have access rights to this user's page"
-      redirect_to root_path
-    end
+    check_user
   end
 
+  # destroy a user
   def destroy
     current_user.destroy
     flash[:success] = "User successfully deleted"
     redirect_to root_path
   end
 
+  # update a user pwd
   def update
+    check_user
     user = current_user
     user.password = params[:password]
     user.password_confirmation = params[:password_confirmation]
-    if user.save
+    if user.save && params[:password].length >= 5
       flash[:success] = "Password updated"
       redirect_to root_path
     else
@@ -48,5 +49,6 @@ class UsersController < ApplicationController
   end
 
   def edit
+    check_user
   end
 end

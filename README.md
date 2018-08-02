@@ -1,24 +1,28 @@
-# README
+# Secret Website
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails project to get to know the authentification process in Rails.
 
-Things you may want to cover:
+Our first approach of sessions and cookies aswell as access rights to certain pages.
 
-* Ruby version
+Errors and successes are notified to the user through `flash`.
 
-* System dependencies
+We use PostgresQl as a database.
 
-* Configuration
+[https://tibo-secret.herokuapp.com](https://tibo-secret.herokuapp.com)
 
-* Database creation
+To install the project, run:
+```sh
+$ bundle install
+```
 
-* Database initialization
+To use locally you will need to setup a postgresQL database.
+If you have postgresQL installed on your system, run:
+```sh
+$ createdb secret 
+$ createuser secret_development --createdb
+```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Finally start the migrations and seed the database
+```sh
+$ rails db:migrate && rails db:seed
+```

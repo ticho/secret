@@ -38,4 +38,12 @@ module SessionsHelper
     session.delete(:user_id)
     @current_user = nil
   end
+
+  # Redirect if wrong user
+  def check_user
+    if (!logged_in? || current_user.id.to_i != params[:id].to_i)
+      flash[:danger] = "You don't have access rights to this user's page"
+      redirect_to root_path
+    end
+  end
 end
