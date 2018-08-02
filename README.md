@@ -1,14 +1,15 @@
 # Secret Website
 
+[https://tibo-secret.herokuapp.com](https://tibo-secret.herokuapp.com)
+
 Rails project to get to know the authentification process in Rails.
 
 Our first approach of sessions and cookies aswell as access rights to certain pages.
 
-Errors and successes are notified to the user through `flash`.
+Errors and successes are notified to the user through `flash` notifications.
 
 We use PostgresQl as a database.
 
-[https://tibo-secret.herokuapp.com](https://tibo-secret.herokuapp.com)
 
 To install the project, run:
 ```sh
