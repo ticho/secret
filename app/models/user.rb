@@ -3,7 +3,8 @@ class User < ApplicationRecord
 
   has_secure_password
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: { case_sensitive: false }
-  validates :password_digest, presence: true, length: {minimum: 5}
+  # validates :password_digest, presence: true, length: {minimum: 5}
+  validates :password, presence: true, length: {minimum: 5}
 
   # Returns the hash digest of the given string.
   def User.digest(string)
